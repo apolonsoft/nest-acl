@@ -1,0 +1,38 @@
+version: "3.7"
+
+volumes:
+  db-storage:
+  node_modules_storage:
+
+networks:
+  apolonsoft-network:
+    external: true
+
+services:
+  app:
+    build: .
+    container_name: nest-acl
+    depends_on:
+      - db
+    networks:
+      apolonsoft-network:
+    ports:
+      - "3008:3008"
+      - "3009:3009"
+    volumes:
+      - .:/project
+      - node_modules_storage:/project/node_modules
+    env_file: .env
+    restart: always
+  db:
+    image: postgres:12
+    volumes:
+      - db-storage:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: nest-acl
+    networks:
+      apolonsoft-network:
+    ports:
+      - "5433:5432"
