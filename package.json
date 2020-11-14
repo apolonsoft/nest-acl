@@ -24,6 +24,7 @@
     "first-release": "standard-version --commit-all --first-release"
   },
   "dependencies": {
+    "@nest/shared": "git+https://github.com/apolonsoft/nest-shared.git",
     "@nestjs/common": "^7.0.0",
     "@nestjs/config": "^0.5.0",
     "@nestjs/core": "^7.0.0",
@@ -31,6 +32,7 @@
     "@nestjs/microservices": "^7.4.4",
     "@nestjs/platform-express": "^7.0.0",
     "apollo-server-express": "^2.16.1",
+    "custom-schema-printer": "git+https://github.com/apolonsoft/custom-schema-printer.git",
     "eslint-plugin-tsc": "^1.2.0",
     "graphql": "^15.3.0",
     "graphql-tools": "^6.2.4",

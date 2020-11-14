@@ -3,11 +3,12 @@ import { Transport } from '@nestjs/microservices'
 import { AppModule, AppModuleForSchemaGeneration } from './app.module'
 import { Logger } from '@nestjs/common'
 import * as path from 'path'
+import {CustomSchemaPrinter} from "custom-schema-printer/dist";
 
-const logger = new Logger('ACLInstance')
+const logger = new Logger('NestACLInstance')
 
 async function bootstrap(): Promise<void> {
-    await ExtendedSchemaPrinter.createSchemaFile(
+    await CustomSchemaPrinter.createSchemaFile(
         AppModuleForSchemaGeneration,
         path.join(process.cwd(), 'schema.graphql'),
     )
